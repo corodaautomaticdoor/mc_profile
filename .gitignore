@@ -42,6 +42,8 @@ build/
 
 ### VS Code ###
 .vscode/
+### target ###
+*/target/*
 
 ###No se incluye estos archivos ###
 mvnw
