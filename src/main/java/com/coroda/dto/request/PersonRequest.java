@@ -12,34 +12,34 @@ import lombok.Data;
 @AllArgsConstructor
 public class PersonRequest {
 
-   @ApiModelProperty("id")
+   @ApiModelProperty(value = "id", required = true , position = 1)
    private long idPerson;
 
-   @ApiModelProperty("typeDocument")
+   @ApiModelProperty(value = "typeDocument", required = true , position = 2)
    private TypeDocument typeDocument;
 
-   @ApiModelProperty("typePerson")
+   @ApiModelProperty(value = "typePerson", required = true , position = 3)
    private TypePerson typePerson;
 
-   @ApiModelProperty("name")
+   @ApiModelProperty(value = "name", required = true , position = 4)
    private String name;
 
-   @ApiModelProperty("lastName1")
+   @ApiModelProperty(value = "lastName1", required = true , position = 5)
    private String lastName1;
 
-   @ApiModelProperty("lastName2")
+   @ApiModelProperty(value = "lastName2", required = true , position = 6)
    private String lastName2;
 
-   @ApiModelProperty("socialReason")
+   @ApiModelProperty(value = "socialReason", required = true , position = 7)
    private String socialReason;
 
-   @ApiModelProperty("address")
+   @ApiModelProperty(value = "address", required = true , position = 8)
    private String address;
 
-   @ApiModelProperty("email")
+   @ApiModelProperty(value = "email", required = true , position = 9)
    private String email;
 
-   @ApiModelProperty("phone")
+   @ApiModelProperty(value = "phone", required = true , position = 10)
    private long phone;
 
    }
