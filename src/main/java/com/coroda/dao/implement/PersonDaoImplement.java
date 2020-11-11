@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.ws.rs.BadRequestException;
+
 @Slf4j
 @Repository
 @AllArgsConstructor
@@ -97,7 +99,7 @@ public class PersonDaoImplement implements PersonDao {
     private Maybe<Person> maybeAt(Long idPerson){
         return Maybe.just(
                 personRepository.findById(idPerson)
-                        .orElseThrow(IllegalArgumentException::new))
+                        .<BadRequestException>orElseThrow(BadRequestException::new))
                 .switchIfEmpty(Maybe.empty());
     }
 }
