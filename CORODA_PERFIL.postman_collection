@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "03f7cf2b-a84b-4367-9b60-08b6faa2f813",
+		"name": "PERFIL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Guardar Perfil",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"typeDocument\": 0,\r\n  \"typePerson\": 0,\r\n        \"name\": \"lucero\",\r\n        \"lastName1\": \"ampudia\",\r\n        \"lastName2\": \"trigoso\",\r\n        \"socialReason\": \"lucero\",\r\n        \"address\": \"hernando lavalle\",\r\n        \"email\": \"luceamtri@gmail.com\",\r\n        \"phone\": 960412212\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8022/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Perfiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Perfil por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Perfil",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Perfil",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"idPerson\": 1,\r\n        \"typeDocument\": 1,\r\n        \"typePerson\": 1,\r\n        \"name\": \"Lucero\",\r\n        \"lastName1\": \"Ampudia\",\r\n        \"lastName2\": \"Trigoso\",\r\n        \"socialReason\": \"Lucerito\",\r\n        \"address\": \"Hernando Lavalle\",\r\n        \"email\": \"luceamtri@gmail.com\",\r\n        \"phone\": 960412212\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8022/person/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
