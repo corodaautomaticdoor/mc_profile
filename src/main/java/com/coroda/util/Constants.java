@@ -2,7 +2,7 @@ package com.coroda.util;
 
 public class Constants {
     public final static String MAIN_PATH = "/person";
-    public final static String ID = "/{id}";
+    public final static String ID = "/{idPerson}";
 
     public final static String SUCCESS = "SUCCESS";
     public final static String ERROR = "ERROR";

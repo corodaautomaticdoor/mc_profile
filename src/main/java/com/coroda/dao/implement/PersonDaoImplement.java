@@ -97,6 +97,7 @@ public class PersonDaoImplement implements PersonDao {
 
     //Este método privado ayuda al método públic GETBYID / DELETE / UPDATE
     private Maybe<Person> maybeAt(Long idPerson){
+        log.info("buscando por id y obteniendo los campos");
         return Maybe.just(
                 personRepository.findById(idPerson)
                         .<BadRequestException>orElseThrow(BadRequestException::new))
