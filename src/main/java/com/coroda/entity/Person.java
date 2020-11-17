@@ -22,6 +22,9 @@ public class Person {
     @Column(name = "typePerson")
     private TypePerson typePerson;
 
+    @Column(name = "numberDocument")
+    private Long numberDocument;
+
     @Column(name = "name")
     @Pattern(regexp = "[a-zA-ZÁáÉéÍíÓóÚúÑñ]+",message = "ingresar solo letras")
     private String name;

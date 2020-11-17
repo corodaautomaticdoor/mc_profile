@@ -17,6 +17,8 @@ public class PersonResponse {
 
     private TypePerson typePerson;
 
+    private Long numberDocument;
+
     private String name;
 
     private String lastName1;

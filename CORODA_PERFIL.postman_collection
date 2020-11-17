@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"typeDocument\": 0,\r\n  \"typePerson\": 0,\r\n        \"name\": \"lucero\",\r\n        \"lastName1\": \"ampudia\",\r\n        \"lastName2\": \"trigoso\",\r\n        \"socialReason\": \"lucero\",\r\n        \"address\": \"hernando lavalle\",\r\n        \"email\": \"luceamtri@gmail.com\",\r\n        \"phone\": 960412212\r\n}",
+					"raw": "{\r\n    \"typeDocument\": 0,\r\n    \"typePerson\": 0,\r\n    \"numberDocument\":71723707,\r\n    \"name\": \"gary\",\r\n    \"lastName1\": \"chavez\",\r\n    \"lastName2\": \"jimenez\",\r\n    \"socialReason\": \"gary\",\r\n    \"address\": \"hernando lavalle\",\r\n    \"email\": \"garychavezj@gmail.com\",\r\n    \"phone\": 955163628\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,7 +39,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8022/person",
+					"raw": "http://localhost:8022/person?numberDocument=71723707",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -47,6 +47,12 @@
 					"port": "8022",
 					"path": [
 						"person"
+					],
+					"query": [
+						{
+							"key": "numberDocument",
+							"value": "71723707"
+						}
 					]
 				}
 			},
@@ -99,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"idPerson\": 1,\r\n        \"typeDocument\": 1,\r\n        \"typePerson\": 1,\r\n        \"name\": \"Lucero\",\r\n        \"lastName1\": \"Ampudia\",\r\n        \"lastName2\": \"Trigoso\",\r\n        \"socialReason\": \"Lucerito\",\r\n        \"address\": \"Hernando Lavalle\",\r\n        \"email\": \"luceamtri@gmail.com\",\r\n        \"phone\": 960412212\r\n    }",
+					"raw": "    {\r\n        \"idPerson\": 1,\r\n        \"typeDocument\": 1,\r\n        \"typePerson\": 1,\r\n        \"numberDocument\": 71723707,\r\n        \"name\": \"Lucero\",\r\n        \"lastName1\": \"Ampudia\",\r\n        \"lastName2\": \"Trigoso\",\r\n        \"socialReason\": \"Lucerito\",\r\n        \"address\": \"Hernando Lavalle\",\r\n        \"email\": \"luceamtri@gmail.com\",\r\n        \"phone\": 960412212\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"

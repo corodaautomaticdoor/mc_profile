@@ -16,4 +16,6 @@ public interface PersonDao {
     Single<PersonResponse> getById(Long idPerson);
     Completable delete(Long idPerson);
     Completable update(PersonRequest model);
+
+    Observable<PersonResponse> searchNumberDocumentPerfil(Long numberDocument);
 }

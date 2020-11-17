@@ -36,6 +36,7 @@ public class PersonDaoImplement implements PersonDao {
         person.setIdPerson(model.getIdPerson());
         person.setTypeDocument(model.getTypeDocument());
         person.setTypePerson(model.getTypePerson());
+        person.setNumberDocument(model.getNumberDocument());
         person.setName(model.getName());
         person.setLastName1(model.getLastName1());
         person.setLastName2(model.getLastName2());
@@ -61,6 +62,7 @@ public class PersonDaoImplement implements PersonDao {
         personResponse.setIdPerson(model.getIdPerson());
         personResponse.setTypeDocument(model.getTypeDocument());
         personResponse.setTypePerson(model.getTypePerson());
+        personResponse.setNumberDocument(model.getNumberDocument());
         personResponse.setName(model.getName());
         personResponse.setLastName1(model.getLastName1());
         personResponse.setLastName2(model.getLastName2());
@@ -93,6 +95,15 @@ public class PersonDaoImplement implements PersonDao {
         return maybeAt(model.getIdPerson()).flatMapCompletable(person -> {
             return save(model);
         });
+    }
+
+    @Override
+    public Observable<PersonResponse> searchNumberDocumentPerfil(Long numberDocument) {
+        log.info("Extrayendo reistros del perfil  acorde al número de documento");
+        return Observable.fromIterable(personRepository.searchNumberDocument(numberDocument))
+                .filter(obj -> obj.getNumberDocument().equals(numberDocument))
+                .map(person -> getPersonResponse(person))
+                .subscribeOn(Schedulers.io());
     }
 
     //Este método privado ayuda al método públic GETBYID / DELETE / UPDATE

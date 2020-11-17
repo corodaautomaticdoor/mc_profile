@@ -21,25 +21,28 @@ public class PersonRequest {
    @ApiModelProperty(value = "typePerson", required = true , position = 3)
    private TypePerson typePerson;
 
-   @ApiModelProperty(value = "name", required = true , position = 4)
+   @ApiModelProperty(value = "numberDocument", required = true , position = 4)
+   private Long numberDocument;
+
+   @ApiModelProperty(value = "name", required = true , position = 5)
    private String name;
 
-   @ApiModelProperty(value = "lastName1", required = true , position = 5)
+   @ApiModelProperty(value = "lastName1", required = true , position = 6)
    private String lastName1;
 
-   @ApiModelProperty(value = "lastName2", required = true , position = 6)
+   @ApiModelProperty(value = "lastName2", required = true , position = 7)
    private String lastName2;
 
-   @ApiModelProperty(value = "socialReason", required = true , position = 7)
+   @ApiModelProperty(value = "socialReason", required = true , position = 8)
    private String socialReason;
 
-   @ApiModelProperty(value = "address", required = true , position = 8)
+   @ApiModelProperty(value = "address", required = true , position = 9)
    private String address;
 
-   @ApiModelProperty(value = "email", required = true , position = 9)
+   @ApiModelProperty(value = "email", required = true , position = 10)
    private String email;
 
-   @ApiModelProperty(value = "phone", required = true , position = 10)
+   @ApiModelProperty(value = "phone", required = true , position = 11)
    private long phone;
 
    }

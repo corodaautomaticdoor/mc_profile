@@ -14,6 +14,8 @@ import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 
 @RestController
 @RequestMapping(Constants.MAIN_PATH)
@@ -30,10 +32,15 @@ public class PersonController {
         return personService.save(model);
     }
 
+//    @GetMapping
+//    @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
+//    public  Observable<PersonResponse> findAll(){
+//        return personService.findAll();
+//    }
     @GetMapping
     @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
-    public  Observable<PersonResponse> findAll(){
-        return personService.findAll();
+    public  Observable<PersonResponse> getData(@RequestParam Map<Long, String> params){
+        return personService.getData(params);
     }
 
     @GetMapping(Constants.ID)
