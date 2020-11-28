@@ -36,6 +36,11 @@ public class PersonServiceImplement implements PersonService {
     }
 
     @Override
+    public Observable<PersonResponse> getByNumberDocument(Long numberDocument) {
+        return personDao.searchNumberDocumentPerfil(numberDocument);
+    }
+
+    @Override
     public Completable delete(Long idPerson) {
         return personDao.delete(idPerson);
     }

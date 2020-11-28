@@ -12,6 +12,7 @@ public interface PersonService {
     Completable save(PersonRequest model);
 //    Observable<PersonResponse> findAll();
     Single<PersonResponse> getById(Long idPerson);
+    Observable<PersonResponse> getByNumberDocument(Long numberDocument);
     Completable delete(Long idPerson);
     Completable update(PersonRequest model);
 
