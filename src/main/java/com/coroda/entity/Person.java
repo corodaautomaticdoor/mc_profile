@@ -13,7 +13,6 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPerson")
     private Long idPerson;
 
     @Column(name = "typeDocument")
