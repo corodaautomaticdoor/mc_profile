@@ -49,6 +49,12 @@ public class PersonController {
         return  personService.getById(idPerson);
     }
 
+    @GetMapping(Constants.NUMBER_DOCUMENT)
+    @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
+    public  Observable<PersonResponse> getByNumberDocument( @PathVariable("numberDocument") Long numberDocument){
+        return  personService.getByNumberDocument(numberDocument);
+    }
+
     @DeleteMapping(Constants.ID)
     @ApiOperation(value = Constants.DELETE_ID_VALUE, notes = Constants.DELETE_ID_NOTE)
     public  Completable delete(@PathVariable("idPerson") Long idPerson){
