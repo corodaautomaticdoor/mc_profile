@@ -3,6 +3,7 @@ package com.coroda.util;
 public class Constants {
     public final static String MAIN_PATH = "/person";
     public final static String ID = "/{idPerson}";
+    public final static String NUMBER_DOCUMENT = "number/{numberDocument}";
 
     public final static String SUCCESS = "SUCCESS";
     public final static String ERROR = "ERROR";
