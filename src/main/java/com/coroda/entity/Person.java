@@ -25,7 +25,6 @@ public class Person {
     private Long numberDocument;
 
     @Column(name = "name")
-    @Pattern(regexp = "[a-zA-ZÁáÉéÍíÓóÚúÑñ]+",message = "ingresar solo letras")
     private String name;
 
     @Column(name = "lastName1")
