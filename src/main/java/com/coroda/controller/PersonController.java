@@ -1,5 +1,6 @@
 package com.coroda.controller;
 
+import com.coroda.dto.request.BodyPersonRequest;
 import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import com.coroda.service.PersonService;
@@ -10,10 +11,10 @@ import io.reactivex.Single;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -32,11 +33,6 @@ public class PersonController {
         return personService.save(model);
     }
 
-//    @GetMapping
-//    @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
-//    public  Observable<PersonResponse> findAll(){
-//        return personService.findAll();
-//    }
     @GetMapping
     @ApiOperation(value = Constants.GETDATA_VALUE, notes = Constants.GETDATA_NOTE)
     public  Observable<PersonResponse> getData(@RequestParam Map<Long, String> params){
@@ -65,6 +61,12 @@ public class PersonController {
     @ApiOperation(value = Constants.UPDATE_ID_VALUE, notes = Constants.UPDATE_ID_NOTE)
     public Completable update(@RequestBody PersonRequest model){
         return personService.update(model);
+    }
+
+    @GetMapping(Constants.BODY_LIST_DNI)
+    @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
+    public  Observable<PersonResponse> SearchBodyListDni( @RequestBody List<BodyPersonRequest> requestList){
+        return  personService.searchListDni(requestList);
     }
 
 }

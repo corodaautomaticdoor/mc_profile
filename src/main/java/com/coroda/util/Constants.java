@@ -2,11 +2,9 @@ package com.coroda.util;
 
 public class Constants {
     public final static String MAIN_PATH = "/person";
-    public final static String ID = "/{idPerson}";
-    public final static String NUMBER_DOCUMENT = "number/{numberDocument}";
-
-    public final static String SUCCESS = "SUCCESS";
-    public final static String ERROR = "ERROR";
+    public final static String ID = "id/{idPerson}";
+    public final static String NUMBER_DOCUMENT = "/{numberDocument}";
+    public final static String BODY_LIST_DNI = "/listdni";
 
     public final static String SAVE_VALUE="Metodo a traves del cual se envia la informacion del Perfil que  sera registrada dentro de la base de datos";
     public final static String SAVE_NOTE="Para el registro del Perfil , sera necesario el llenado de todo los campos , a excepcion de los Id´s los cuales seran generados automaticamente";

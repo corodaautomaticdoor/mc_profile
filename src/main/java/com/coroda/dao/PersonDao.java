@@ -1,13 +1,11 @@
 package com.coroda.dao;
 
+import com.coroda.dto.request.BodyPersonRequest;
 import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;
-
-
-
 
 public interface PersonDao {
 
@@ -18,4 +16,5 @@ public interface PersonDao {
     Completable update(PersonRequest model);
 
     Observable<PersonResponse> searchNumberDocumentPerfil(Long numberDocument);
+    Observable<PersonResponse> searchDni(BodyPersonRequest request);
 }

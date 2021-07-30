@@ -1,6 +1,7 @@
 package com.coroda.dao.implement;
 
 import com.coroda.dao.PersonDao;
+import com.coroda.dto.request.BodyPersonRequest;
 import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import com.coroda.entity.Person;
@@ -102,6 +103,14 @@ public class PersonDaoImplement implements PersonDao {
         log.info("Extrayendo reistros del perfil  acorde al número de documento");
         return Observable.fromIterable(personRepository.searchNumberDocument(numberDocument))
                 .filter(obj -> obj.getNumberDocument().equals(numberDocument))
+                .map(person -> getPersonResponse(person))
+                .subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    public Observable<PersonResponse> searchDni(BodyPersonRequest request) {
+        return Observable.fromIterable(personRepository.searchNumberDocument(request.getNumberDocument()))
+                .filter(obj -> obj.getNumberDocument().equals(request.getNumberDocument()))
                 .map(person -> getPersonResponse(person))
                 .subscribeOn(Schedulers.io());
     }
