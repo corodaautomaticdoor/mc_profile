@@ -7,9 +7,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query("from Person p where p.numberDocument = :numberDocument")
     List<Person> searchNumberDocument (@Param("numberDocument") Long numberDocument);
+
+    @Query("from Person p where p.email = :email")
+    List<Person> searchEmail (@Param("email") String email);
 }

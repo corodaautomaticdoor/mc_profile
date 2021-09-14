@@ -28,11 +28,9 @@ public class Person {
     private String name;
 
     @Column(name = "lastName1")
-    @Pattern(regexp = "[a-zA-ZÁáÉéÍíÓóÚúÑñ]+",message = "ingresar solo letras")
     private String lastName1;
 
     @Column(name = "lastName2")
-    @Pattern(regexp = "[a-zA-ZÁáÉéÍíÓóÚúÑñ]+",message = "ingresar solo letras")
     private String lastName2;
 
     @Column(name = "socialReason")

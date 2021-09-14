@@ -145,25 +145,21 @@
 			"response": []
 		},
 		{
-			"name": "Listar Perfiles",
+			"name": "Search Email",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8022/person?numberDocument=71723707",
+					"raw": "http://localhost:8022/person/email/kiochaji@gmail.com",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8022",
 					"path": [
-						"person"
-					],
-					"query": [
-						{
-							"key": "numberDocument",
-							"value": "71723707"
-						}
+						"person",
+						"email",
+						"kiochaji@gmail.com"
 					]
 				}
 			},

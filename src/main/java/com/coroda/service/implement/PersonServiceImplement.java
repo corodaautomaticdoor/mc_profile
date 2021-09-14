@@ -6,6 +6,7 @@ import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import com.coroda.service.PersonService;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -34,7 +35,7 @@ public class PersonServiceImplement implements PersonService {
     }
 
     @Override
-    public Observable<PersonResponse> getByNumberDocument(Long numberDocument) {
+    public Maybe<PersonResponse> getByNumberDocument(Long numberDocument) {
         return personDao.searchNumberDocumentPerfil(numberDocument);
     }
 
@@ -58,7 +59,8 @@ public class PersonServiceImplement implements PersonService {
             if(params.get("numberDocument") != null ){
                 log.info("Buscando por numero de documento");
                 numberDocument = Long.valueOf(params.get("numberDocument"));
-                personResponseObservable = personDao.searchNumberDocumentPerfil(numberDocument);
+                personResponseObservable = personDao.searchNumberDocumentPerfil(numberDocument)
+                .toObservable();
             }
         }else {
             log.info("Buscando todos los registros");
@@ -73,6 +75,11 @@ public class PersonServiceImplement implements PersonService {
         return Observable.fromIterable(requestList)
                 .flatMap(person->personDao.searchDni(person))
                 .subscribeOn(Schedulers.io());
+    }
+
+    @Override
+    public Maybe<PersonResponse> searchEmail(String email) {
+        return personDao.searchEmail(email);
     }
 
 }

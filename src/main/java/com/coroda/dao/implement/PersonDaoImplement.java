@@ -5,11 +5,14 @@ import com.coroda.dto.request.BodyPersonRequest;
 import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import com.coroda.entity.Person;
+import com.coroda.exception.DataException;
+import com.coroda.exception.ResourceNotFoundException;
 import com.coroda.repository.PersonRepository;
 import io.reactivex.*;
 import io.reactivex.schedulers.Schedulers;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -53,6 +56,8 @@ public class PersonDaoImplement implements PersonDao {
         log.info("Se da el seteo de todos los datos registrados");
         return Observable.fromIterable(personRepository.findAll())
                 .map(person -> getPersonResponse(person))
+                .switchIfEmpty(Observable
+                        .error( new ResourceNotFoundException("No se encontraron registros")))
                 .subscribeOn(Schedulers.io());
     }
 
@@ -71,7 +76,6 @@ public class PersonDaoImplement implements PersonDao {
         personResponse.setAddress(model.getAddress());
         personResponse.setEmail(model.getEmail());
         personResponse.setPhone(model.getPhone());
-
         return personResponse;
     }
 
@@ -99,11 +103,13 @@ public class PersonDaoImplement implements PersonDao {
     }
 
     @Override
-    public Observable<PersonResponse> searchNumberDocumentPerfil(Long numberDocument) {
+    public Maybe<PersonResponse> searchNumberDocumentPerfil(Long numberDocument) {
         log.info("Extrayendo reistros del perfil  acorde al número de documento");
         return Observable.fromIterable(personRepository.searchNumberDocument(numberDocument))
-                .filter(obj -> obj.getNumberDocument().equals(numberDocument))
                 .map(person -> getPersonResponse(person))
+                .firstElement()
+                .switchIfEmpty(Maybe
+                        .error( new ResourceNotFoundException("No se encontró los datos de la persona")))
                 .subscribeOn(Schedulers.io());
     }
 
@@ -115,6 +121,17 @@ public class PersonDaoImplement implements PersonDao {
                 .subscribeOn(Schedulers.io());
     }
 
+    @Override
+    public Maybe<PersonResponse> searchEmail(String email) {
+        return Observable.fromIterable(personRepository.searchEmail(email))
+                .map(person -> getPersonResponse(person))
+                .firstElement()
+                .switchIfEmpty(Maybe
+                        .error( new ResourceNotFoundException("No se encontró los datos de la persona")))
+                .subscribeOn(Schedulers.io());
+
+    }
+
     //Este método privado ayuda al método públic GETBYID / DELETE / UPDATE
     private Maybe<Person> maybeAt(Long idPerson){
         log.info("buscando por id y obteniendo los campos");
@@ -123,5 +140,6 @@ public class PersonDaoImplement implements PersonDao {
                         .<BadRequestException>orElseThrow(BadRequestException::new))
                 .switchIfEmpty(Maybe.empty());
     }
+
 }
 

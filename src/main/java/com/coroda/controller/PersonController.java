@@ -6,6 +6,7 @@ import com.coroda.dto.response.PersonResponse;
 import com.coroda.service.PersonService;
 import com.coroda.util.Constants;
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.swagger.annotations.Api;
@@ -47,7 +48,7 @@ public class PersonController {
 
     @GetMapping(Constants.NUMBER_DOCUMENT)
     @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
-    public  Observable<PersonResponse> getByNumberDocument( @PathVariable("numberDocument") Long numberDocument){
+    public  Maybe<PersonResponse> getByNumberDocument( @PathVariable("numberDocument") Long numberDocument){
         return  personService.getByNumberDocument(numberDocument);
     }
 
@@ -67,6 +68,12 @@ public class PersonController {
     @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
     public  Observable<PersonResponse> SearchBodyListDni( @RequestBody List<BodyPersonRequest> requestList){
         return  personService.searchListDni(requestList);
+    }
+
+    @GetMapping(Constants.EMAIL)
+    @ApiOperation(value = Constants.GETEMAIL_VALUE, notes = Constants.GETEMAIL_NOTE)
+    public Maybe<PersonResponse> searchEmail(@PathVariable("email") String email){
+        return  personService.searchEmail(email);
     }
 
 }
