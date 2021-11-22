@@ -20,6 +20,7 @@ import java.util.Map;
 
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping(Constants.MAIN_PATH)
 @Api(tags = "Microservicio Perfil", description = "Esta API se encarga de la gestion de los Perfiles")
 @Slf4j
