@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "03f7cf2b-a84b-4367-9b60-08b6faa2f813",
+		"name": "PERFIL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Guardar Perfil",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"typeDocument\": 0,\r\n    \"typePerson\": 0,\r\n    \"numberDocument\":71723707,\r\n    \"name\": \"gary\",\r\n    \"lastName1\": \"chavez\",\r\n    \"lastName2\": \"jimenez\",\r\n    \"socialReason\": \"gary\",\r\n    \"address\": \"hernando lavalle\",\r\n    \"email\": \"garychavezj@gmail.com\",\r\n    \"phone\": 955163628\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8022/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Perfil por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Perfiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Perfil",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/id/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"id",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Perfil",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"idPerson\": 1,\r\n        \"typeDocument\": 1,\r\n        \"typePerson\": 1,\r\n        \"numberDocument\": 71723707,\r\n        \"name\": \"Gary\",\r\n        \"lastName1\": \"Chavez\",\r\n        \"lastName2\": \"Jimenez\",\r\n        \"socialReason\": \"Gary\",\r\n        \"address\": \"Hernando Lavalle\",\r\n        \"email\": \"garychavezj@gmail.com\",\r\n        \"phone\": 955163628\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8022/person/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search DNI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/71723707",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"71723707"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8022/person/email/kiochaji@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"email",
+						"kiochaji@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search list number document",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"numberDocument\": 71723707\r\n    },\r\n    {\r\n        \"numberDocument\": 74593040\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8022/person/listdni",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8022",
+					"path": [
+						"person",
+						"listdni"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
