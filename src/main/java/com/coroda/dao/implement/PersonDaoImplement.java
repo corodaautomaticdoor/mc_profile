@@ -11,6 +11,7 @@ import com.coroda.repository.PersonRepository;
 import io.reactivex.*;
 import io.reactivex.schedulers.Schedulers;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.ws.rs.BadRequestException;
 
-@Slf4j
-@Repository
 @AllArgsConstructor
+@Repository
+@Slf4j
+@Data
 public class PersonDaoImplement implements PersonDao {
 
     @Autowired
