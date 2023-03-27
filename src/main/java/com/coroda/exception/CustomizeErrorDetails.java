@@ -8,7 +8,6 @@ public class CustomizeErrorDetails {
 	private String message;
 
 	public CustomizeErrorDetails(Date timeStamp, String message) {
-		// TODO Auto-generated constructor stub
 		this.timeStamp = timeStamp;
 		this.message = message;
 	}

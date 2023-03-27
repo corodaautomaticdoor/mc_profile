@@ -22,7 +22,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping(Constants.MAIN_PATH)
-@Api(tags = "Microservicio Perfil", description = "Esta API se encarga de la gestion de los Perfiles")
+@Api(tags = "Microservicio Perfil")
 @Slf4j
 public class PersonController {
 
@@ -67,7 +67,7 @@ public class PersonController {
 
     @GetMapping(Constants.BODY_LIST_DNI)
     @ApiOperation(value = Constants.GET_ID_VALUE, notes = Constants.GET_ID_NOTE)
-    public  Observable<PersonResponse> SearchBodyListDni( @RequestBody List<BodyPersonRequest> requestList){
+    public  Observable<PersonResponse> searchBodyListDni( @RequestBody List<BodyPersonRequest> requestList){
         return  personService.searchListDni(requestList);
     }
 

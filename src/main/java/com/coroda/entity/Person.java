@@ -3,9 +3,6 @@ package com.coroda.entity;
 import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 @Data
 @Entity
 @Table ( name  =  "person" )
@@ -48,11 +45,5 @@ public class Person {
 //    @Size(min = 9 , max = 9 , message = "ingrese correctamente su número")
      private long phone;
 
-
-
-/*
-    @OneToOne(mappedBy = "person")
-    private User user;
-*/
 }
 

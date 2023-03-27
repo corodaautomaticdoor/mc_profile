@@ -1,7 +1,6 @@
 package com.coroda.service;
 
 import com.coroda.dto.request.BodyPersonRequest;
-import com.coroda.dto.request.ListBodyPersonRequest;
 import com.coroda.dto.request.PersonRequest;
 import com.coroda.dto.response.PersonResponse;
 import io.reactivex.Completable;
